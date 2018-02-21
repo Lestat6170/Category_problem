@@ -1,6 +1,9 @@
 ﻿
 namespace Category_problem
 {
+    /// <summary>
+    /// Category
+    /// </summary>
     public class Category
     {
         public int CategoryId { get; set; }

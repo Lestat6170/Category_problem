@@ -1,6 +1,9 @@
 ﻿
 namespace Category_problem
 {
+    /// <summary>
+    /// Category data  
+    /// </summary>
     public class CategoryInfo
     {
         public int ParentCategoryId { get; set; }

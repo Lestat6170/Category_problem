@@ -3,21 +3,39 @@ using System.Collections.Generic;
 
 namespace Category_problem
 {
+    /// <summary>
+    /// The service provide category operations  
+    /// </summary>
     public class CategoryService
     {
         public List<Category> CategoryData { get; set; }
 
+        /// <summary>
+        /// Initialize with categories dataset
+        /// </summary>
+        /// <param name="Categories"></param>
         public CategoryService(List<Category> Categories)
         {
             CategoryData = Categories;
         }
 
+        /// <summary>
+        /// Get the categories by category level which are of N’th level in the hierarchy(categories with parentId -1 are at 1st level)
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns>Categories</returns>
         public List<Category> GetCategoriesByLevel(int level)
         {
             //Get categories recursively starting from root level(1)
             return (CategoryData != null) ? GetCategoriesByLevelRecursively(level, 1, -1, new List<Category>()) : null;
         }
 
+
+        /// <summary>
+        /// Get category data(name, parentCategoryId, key-word) by categoryId 
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns>Category data</returns>
         public CategoryInfo GetCategoryInfoById(int categoryId)
         {
             return (CategoryData != null) ? GetCategoryInfoByIdRecursively(categoryId, null) : null;
